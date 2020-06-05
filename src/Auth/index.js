@@ -3,7 +3,7 @@ const AWS = require("aws-sdk");
 AWS.config.region = process.env.AWS_REGION;
 const Cognito = new AWS.CognitoIdentityServiceProvider();
 
-const authorizeUser = async (accessToken, userId) => {
+const verifyUser = async (accessToken, userId) => {
     try {
         const userData = await Cognito.getUser({ AccessToken: accessToken }).promise();
         console.log('User data', userData);
@@ -24,5 +24,5 @@ const authorizeUser = async (accessToken, userId) => {
 };
 
 module.exports = {
-    authorizeUser
+    verifyUser
 };

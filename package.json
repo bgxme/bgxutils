@@ -25,6 +25,7 @@
     "eslint-plugin-import": "^2.20.2"
   },
   "dependencies": {
-    "aws-sdk": "^2.690.0"
+    "aws-sdk": "^2.690.0",
+    "mysql": "^2.18.1"
   }
 }

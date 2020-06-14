@@ -6,7 +6,7 @@ const environment = process.env.ENVIRONMENT || 'production';
 AWS.config.region = process.env.AWS_REGION;
 
 const STAGE = environment === "development" ? "dev" : "prod";
-console.log('Database running on env stage: ', STAGE, process.env.ENVIRONMENT);
+console.log('Database running on stage: ', STAGE, process.env.ENVIRONMENT);
 
 const DBControl = {
     connect: async (type) => {

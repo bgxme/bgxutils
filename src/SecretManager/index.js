@@ -18,7 +18,7 @@ const SecretManager = {
             && secretParams.SecretId === this.secretId
         ) return this.currentSecret;
 
-        this.secretId = secretId;
+        this.secretId = secretParams.SecretId;
         this.currentSecret = undefined;
 
         // Create a Secrets Manager client

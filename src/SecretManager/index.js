@@ -5,16 +5,17 @@ AWS.config.region = process.env.AWS_REGION;
 const SecretManager = {
     secretId: undefined,
     currentSecret: undefined,
+    secretParams: undefined,
 
     getSecret: async (
-        secretId,
+        secretParams,
         endpoint = "https://secretsmanager.eu-west-1.amazonaws.com",
         region = "eu-west-1"
     ) => {
         if (
             this.secretId
             && this.currentSecret
-            && secretId === this.secretId
+            && secretParams.SecretId === this.secretId
         ) return this.currentSecret;
 
         this.secretId = secretId;
@@ -27,7 +28,7 @@ const SecretManager = {
         });
 
         const data = await secretsmanager
-            .getSecretValue({ SecretId: this.secretId }).promise();
+            .getSecretValue(secretParams).promise();
         const secrets = JSON.parse(data.SecretString);
         this.currentSecret = secrets;
 

@@ -10,8 +10,8 @@ console.log('Database running on stage: ', STAGE, process.env.ENVIRONMENT);
 
 const DBControl = {
     connect: async (type) => {
-        const secretID = type === "enterprise" ? `${STAGE}/bgxent/mysql` : `${STAGE}/bgx/mysql`;
-        const secret = await SecretManager.getSecret(secretID);
+        const SecretId = type === "enterprise" ? `${STAGE}/bgxent/mysql` : `${STAGE}/bgx/mysql`;
+        const secret = await SecretManager.getSecret({ SecretId });
         const connection = await mysql.createConnection({
             host: secret.host,
             database: secret.database,

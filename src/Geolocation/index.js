@@ -7,7 +7,7 @@ const coordStrToJson = (coordString) => {
     };
 };
 
-const makeCoordString = (coordinates) => {
+const coordObjToString = (coordinates) => {
     const latitude = coordinates["latitude"] || coordinates["lat"];
     const longitude = coordinates["longitude"] || coordinates["lng"];
 
@@ -16,5 +16,5 @@ const makeCoordString = (coordinates) => {
 
 module.exports = {
     coordStrToJson,
-    makeCoordString
+    coordObjToString
 };
